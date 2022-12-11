@@ -1,0 +1,4 @@
+**/obj
+**/bin
+*.code-workspace
+**/old
