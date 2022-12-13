@@ -6,9 +6,7 @@ import matplotlib.pyplot as plt
 # Command line flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('iterations', 1000, 'Number of experiment iterations to run to garner a meaningful sample of the distribution.')
-flags.DEFINE_list('marked_nodes', None, 'Integral indices of the marked nodes of the hypercube (0 - 15).')
-
-flags.mark_flag_as_required('marked_nodes')
+flags.DEFINE_list('marked_nodes', ['13', '15'], 'Integral indices of the marked nodes of the hypercube (0 - 15).')
 
 
 def hypercube(iterations, marked_nodes):
@@ -21,7 +19,7 @@ def hypercube(iterations, marked_nodes):
     """
 
     def shift_operator(qubits):
-        """The 'Shift' operation of the walk - aka performs a step of the walk"""
+        """The 'Shift' operation of the walk - performs a single step of the walk"""
         for i in range(4):
             yield cirq.X(qubits[4])
             if i % 2 == 0:
